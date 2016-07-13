@@ -1,4 +1,10 @@
 # iXp-hackathon
 iXp hackathon code and resources repository
 
-Users please create a directory for yourself to hold your resources and collaborate
+Please create .gitignore file by using "touch .gitignore" command.
+Add all the files that should not be pushed into git. 
+For example: My .gitignore file contains
+              node-modules/*  --> We put required modules in package.json and do npm install after every pull.
+              .idea/* --> This folder contains IDE setting's which should not be pushed.
+              
+Please update and add .gitignore file accordingly.
