@@ -1,0 +1,6 @@
+1. Tried building project using IBM libraries
+
+https://github.com/watson-developer-cloud/speech-to-text-nodejs
+
+2. Haven't tried this one:
+https://github.com/gillesdemey/google-speech-v2
