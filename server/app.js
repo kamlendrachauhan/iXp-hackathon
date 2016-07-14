@@ -13,9 +13,8 @@ var MongoClient = require('mongodb').MongoClient;
 
 var url = 'mongodb://localhost:27017/ixp';
 MongoClient.connect(url, function(err, db) {
-    assert.equal(null, err);
     console.log("Connected correctly to server.");
-    db.close();
+    global.db = db;
 });
 
 var app = express();

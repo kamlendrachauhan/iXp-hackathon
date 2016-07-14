@@ -8,7 +8,7 @@ var router = express.Router();
 var Wit = require('node-wit').Wit;
 var log = require('node-wit').log;
 
-const WIT_TOKEN = "J6XN5MMXRQXBDAQW7MF4F3ZCZDU2FQY6";
+const WIT_TOKEN = "6J6B7W5QQUJECUKXQ7IVRRLIUIKUFOZI";
 
 const firstEntityValue = (entities, entity) => {
     const val = entities && entities[entity] &&
@@ -60,7 +60,7 @@ const actions = {
 
     getForecast({context, entities}) {
         return new Promise(function(resolve, reject) {
-            var location = firstEntityValue(entities, 'location')
+            var location = firstEntityValue(entities, 'location');
             if (location) {
                 context.forecast = 'sunny in ' + location; // we should call a weather API here
                 delete context.missingLocation;
@@ -70,8 +70,58 @@ const actions = {
             }
             return resolve(context);
         });
+    },
+
+    issue({context, entities}) {
+        return new Promise((resolve, reject) => {
+            var intent = firstEntityValue(entities, 'intent');
+           var issueType = firstEntityValue(entities, 'issueType');
+            //var issueType = firstEntityValue(entities, 'subproblem');
+
+            var keys = [];
+            keys.push(issueType);
+            getSolution(keys, function(solution)    {
+                if(solution) {
+                    context.solution = solution;
+                }else {
+                    //bot should ask for creating a ticket
+                }
+                return resolve(context);
+            });
+        });
+    },
+
+    alternateSolution({context, entities})  {
+        return new Promise((resolve, reject) => {
+            var intent = firstEntityValue(entities, 'intent');
+            if(intent == 'solution_unaccepted'){
+                context.raiseTicket = true;
+                delete context.solution;
+            }
+            return resolve(context);
+        });
+    },
+
+    createTicket({context, entities})  {
+        return new Promise((resolve, reject) => {
+            var isTicketRequired = firstEntityValue(entities, 'yes_no');
+                delete context.raiseTicket;
+                delete context.solution;
+
+            return resolve(context);
+        });
     }
 };
+
+var getSolution = function(keys, cb)   {
+    db.collection("collection").findOne({"keywords": {$in:keys}}, function(err, result) {
+        if(result)  {
+            return cb(result.answer);
+        }
+        return cb();
+    });
+};
+
 
 // Setting up our bot
 const wit = new Wit({
