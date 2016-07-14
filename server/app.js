@@ -9,6 +9,14 @@ var socket_io    = require( "socket.io" );
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var message = require('./routes/message');
+var MongoClient = require('mongodb').MongoClient;
+
+var url = 'mongodb://localhost:27017/ixp';
+MongoClient.connect(url, function(err, db) {
+    assert.equal(null, err);
+    console.log("Connected correctly to server.");
+    db.close();
+});
 
 var app = express();
 // Socket.io

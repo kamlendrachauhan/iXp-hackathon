@@ -21,16 +21,26 @@
       </div>
     </div>
   </header>
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12">
-      <h1>Prototype page</h1>
+
+  <div class="container">
+     <div class="row">
+         <div class="col-xs-12">
+             <h1>Prototype page</h1>
+        </div>
+      </div>
+    </div>
+    <div ng-app="botapp">
+        <div ng-controller="bot-controller">
+        <input type="text" ng-model="question" placeholder="Enter your input here"></input>
+        <button type="submit" ng-click="submit()"></button>
     </div>
   </div>
-</div>
+
 <!-- build:js scripts/main.js -->
 <script src="./bower_components/jquery/dist/jquery.min.js"></script>
 <script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="./bower_components/angular/angular.js"></script>
+  <script src="./node_modules/socket.io-client/socket.io.js"></script>
 <script src="./js/botapp.js"></script>
 <script src="./js/botapp.controllers.js"></script>
 <script src="./js/botapp.services.js"></script>

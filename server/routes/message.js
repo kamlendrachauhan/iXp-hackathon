@@ -54,7 +54,7 @@ const actions = {
         return new Promise(function(resolve, reject) {
             console.log('sending...', JSON.stringify(response));
             sessions[sessionId].socket.emit("response", JSON.stringify(response));
-            return resolve(response);
+            return resolve();
         });
     },
 
@@ -70,7 +70,7 @@ const actions = {
             }
             return resolve(context);
         });
-    },
+    }
 };
 
 // Setting up our bot
