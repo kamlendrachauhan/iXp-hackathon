@@ -1,11 +1,27 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+      <meta charset="utf-8">
+
+      <title><%= title %></title>
+
+      <script src="/socket.io-client/socket.io.js"></script>
+
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.js"></script>
+
+      <script type="text/javascript" src="https://code.angularjs.org/1.4.6/angular-route.js"></script>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+      <script src="/javascripts/app.js"></script>
   </head>
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+
+    <div ng-app="chatbotapp">
+        <div ng-controller="chat-controller">
+            <input type="text" ng-model="question" placeholder="Enter your input here"></input>
+            <button type="submit" ng-click="submit()"></button>
+        </div>
+    </div>
   </body>
 </html>
