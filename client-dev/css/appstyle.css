@@ -1,0 +1,49 @@
+
+@font-face {
+    font-family: "brandon-bold";
+    src: url('../fonts/Lato2OFL/Brandon_Grotesque_Bold.ttf');
+    url('../fonts/Lato2OFL/Brandon_Grotesque_Bold.ttf');
+}
+
+@font-face {
+    font-family: "avant-title";
+    src: url('../fonts/Lato2OFL/ITCAvantGardePro-Bold.otf');
+    url('../fonts/Lato2OFL/ITCAvantGardePro-Bold.otf');
+}
+
+.brandon-bold {
+    font-family: 'brandon-bold', sans-serif;
+}
+
+.avant-title{
+  font-family: 'avant-title', sans-serif;
+}
+
+
+.jumbotron-ticky{
+  min-height: 100vh;
+  width: 100vw;
+  background-color: #f8fea6;
+  font-family: 'brandon-bold', sans-serif;
+  background: -webkit-linear-gradient(left, #f8fea6 , #22e3d7);
+  background: -o-linear-gradient(right, #f8fea6, #22e3d7);
+  background: -moz-linear-gradient(right, #f8fea6, #22e3d7);
+  background: linear-gradient(to right, #f8fea6, #22e3d7);
+  margin-bottom: 0px;
+}
+
+.vertical-middle {
+  margin-top: 50%;
+  transform: translateY(-50%);
+}
+
+.jumbotron-ticky p{
+  font-size: 30px;
+}
+.jumbotron-title{
+  font-family: 'avant-title', sans-serif;
+}
+
+.tickey-full{
+  height: 100%;
+}

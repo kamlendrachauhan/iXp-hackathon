@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="botapp">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ticky the Tech Support Guy</title>
+  <!-- build:css styles/main.css -->
+  <link href="./bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="./bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+  <link href="./css/appstyle.css" rel="stylesheet">
+  <link href="./css/chatboxstyle.css" rel="stylesheet" />
+  <!-- endbuild -->
+</head>
+<body ng-controller="bot-controller">
+  <header class="jumbotron jumbotron-ticky">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-8" style="height: 100%;">
+          <div id="tickey-desc" class="vertical-middle">
+            <h1>Hi, I'm Ticky.</h1>
+            <div>
+            <p style="margin-bottom: 0px;">
+              We believe in a simple world.
+            </p>
+            <p>
+              When you have an HR or IT issue, turn to Ticky for help.
+            </p>
+          </div>
+            <div style="text-align: center; margin-top: 50px;">
+              <button class="btn btn-lg btn-info" ng-click="tryTicky();">Try Ticky Now</button>
+            </div>
+          </div>
+          <div id="tickey-chat" class="vertical-middle" style="display: none;">
+            <div class="row">
+              <div class="col-md-12">
+                  <!-- DIRECT CHAT PRIMARY -->
+                  <div class="box box-primary direct-chat direct-chat-primary">
+                      <div class="box-header with-border">
+                          <h3 class="box-title">Direct Chat</h3>
+
+                          <div class="box-tools pull-right">
+                              <span data-toggle="tooltip" title="" class="badge bg-light-blue" data-original-title="3 New Messages">3</span>
+                              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                              </button>
+                              <button type="button" class="btn btn-box-tool" data-toggle="tooltip" title="Contacts" data-widget="chat-pane-toggle">
+                                  <i class="fa fa-comments"></i></button>
+                              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                          </div>
+                      </div>
+                      <!-- /.box-header -->
+                      <div class="box-body" style="height: 500px;">
+                          <!-- Conversations are loaded here -->
+                          <div class="direct-chat-messages">
+                              <!-- Message. Default to the left -->
+                              <div class="direct-chat-msg">
+                                  <div class="direct-chat-info clearfix">
+                                      <span class="direct-chat-name pull-left">Ticky</span>
+                                      <span class="direct-chat-timestamp pull-right">23 Jan 2:00 pm</span>
+                                  </div>
+                                  <!-- /.direct-chat-info -->
+                                  <img class="direct-chat-img" src="./images/TickyHead.svg" alt="Message User Image">
+                                  <!-- /.direct-chat-img -->
+                                  <div class="direct-chat-text">
+                                      Hi there, How may I help you today ?
+                                  </div>
+                                  <!-- /.direct-chat-text -->
+                              </div>
+                              <!-- /.direct-chat-msg -->
+
+                              <!-- Message to the right -->
+                              <div class="direct-chat-msg right">
+                                  <div class="direct-chat-info clearfix">
+                                      <span class="direct-chat-name pull-right">You</span>
+                                      <span class="direct-chat-timestamp pull-left">23 Jan 2:05 pm</span>
+                                  </div>
+                                  <!-- /.direct-chat-info -->
+                                  <img class="direct-chat-img" src="http://bootdey.com/img/Content/user_2.jpg" alt="Message User Image">
+                                  <!-- /.direct-chat-img -->
+                                  <div class="direct-chat-text">
+                                      My internet doesn't work
+                                  </div>
+                                  <!-- /.direct-chat-text -->
+                              </div>
+                              <!-- /.direct-chat-msg -->
+                          </div>
+                          <!--/.direct-chat-messages-->
+
+                          <!-- Contacts are loaded here -->
+                          <div class="direct-chat-contacts">
+                              <ul class="contacts-list">
+                                  <li>
+                                      <a href="#">
+                                          <img class="contacts-list-img" src="http://bootdey.com/img/Content/user_1.jpg">
+
+                                          <div class="contacts-list-info">
+                                              <span class="contacts-list-name">
+                                Count Dracula
+                                <small class="contacts-list-date pull-right">2/28/2015</small>
+                              </span>
+                                              <span class="contacts-list-msg">How have you been? I was...</span>
+                                          </div>
+                                          <!-- /.contacts-list-info -->
+                                      </a>
+                                  </li>
+                                  <!-- End Contact Item -->
+                              </ul>
+                              <!-- /.contatcts-list -->
+                          </div>
+                          <!-- /.direct-chat-pane -->
+                      </div>
+                      <!-- /.box-body -->
+                      <div class="box-footer">
+                          <form action="#" method="post">
+                              <div class="input-group">
+                                  <input type="text" name="message" placeholder="Type Message ..." class="form-control">
+                                  <span class="input-group-btn">
+                          <button type="submit" class="btn btn-primary btn-flat">Send</button>
+                        </span>
+                              </div>
+                          </form>
+                      </div>
+                      <!-- /.box-footer-->
+                  </div>
+                  <!--/.direct-chat -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-4" style="text-align: center; height: 100%">
+          <img class="tickey-full" src="./images/TickyBody.svg"/>
+          <!-- for ticky image -->
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- <div class="container">
+     <div class="row">
+         <div class="col-xs-12">
+             <h1>Prototype page</h1>
+        </div>
+      </div>
+    </div> -->
+    <!-- <div ng-app="botapp">
+        <div ng-controller="bot-controller">
+        <input type="text" ng-model="question" placeholder="Enter your input here"></input>
+        <button type="submit" ng-click="submit()"></button>
+    </div> -->
+  </div>
+
+<!-- build:js scripts/main.js -->
+<script src="./bower_components/jquery/dist/jquery.min.js"></script>
+<script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="./bower_components/angular/angular.js"></script>
+  <script src="./node_modules/socket.io-client/socket.io.js"></script>
+<script src="./js/botapp.js"></script>
+<script src="./js/botapp.controllers.js"></script>
+<script src="./js/botapp.services.js"></script>
+<!-- endbuild -->
+</body>
+</html>
