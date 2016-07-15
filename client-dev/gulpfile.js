@@ -75,7 +75,7 @@ gulp.task('usemin', function(){
     //bootstrap fonts
     var bootstrap_stream = gulp.src('./bower_components/bootstrap/dist/fonts/**/*.{ttf,woff,eot,svg}*').pipe(gulp.dest('./../server/public/fonts'));
     // var fontawesome_stream = gulp.src('./bower_components/font-awesome/fonts/**/*.{ttf,woff,eot,svg}*').pipe(gulp.dest('./dist/fonts'));
-    // var custom_stream = gulp.src('./app/fonts/**/*.{ttf,woff,eot,svg}*').pipe(gulp.dest('./dist/fonts'));
+    var custom_stream = gulp.src('./fonts/**/*.{ttf,woff,eot,svg}*').pipe(gulp.dest('./../server/public/fonts'));
     // return merge(bootstrap_stream, fontawesome_stream);
     return bootstrap_stream;
   });

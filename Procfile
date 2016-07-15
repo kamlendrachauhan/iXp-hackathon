@@ -1,0 +1,1 @@
+web: node —-harmony —-use_strict server/bin/www
